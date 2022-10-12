@@ -97,7 +97,7 @@
 
         <div class="practice">
             <h1> Get textcontent of an element </h1>
-            <p>Perform arithmetic operation on <span id="num1"> 4 </span> and <span id="num2">5 </span> </p>
+            <p>Perform arithmetic operation on <span id="num1"> 10 </span> and <span id="num2"> 19 </span> </p>
             <p>Result:
                 <script src="js/arith.js"></script>
             </p>
@@ -106,11 +106,19 @@
 
         <div class="practice">
             <h1> Get innerHTML of an element</h1>
-            <p id="p1"> Paragraph Number One </p>
-            <p id="p2"> Paragraph Number two </p>
+            <p id="p1" onclick="changeit();"> Paragraph Number One </p>
+            <p id="p2" onmouseover="" onmoseout=""> Paragraph Number two </p>
             <p id="p3"> Paragraph Number three </p>
+            <p><input type="text" id="myname"></p>
             <p>Please write JavaScript code to change the content of each paragraph.
             <p>
+                <script>
+                    // event handler
+                    function changeit(){
+                        document.getElementById('p1').textContent="I did it";
+                        document.getElementById('myname').value="I knew it";
+                    })
+                </script>
 
 
         </div>
