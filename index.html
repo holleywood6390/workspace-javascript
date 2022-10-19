@@ -331,7 +331,7 @@
                 <input type="radio" name="coverage" value="300000">300000
 
             </p>
-            <p> Choose your age group.
+            <p id="ages"> Choose your age group.
                 <select id="agegroup">
                     <option> under 30 </option>
                     <option> 30-34 </option>
@@ -344,7 +344,7 @@
             <p>
                 <input type="button" value="Check Premium">
             </p>
-            <p id="result">
+            <p id="resultP">
 
             </p>
 
@@ -353,12 +353,55 @@
                     var rE=document.querySelector('input[name="coverage"]:checked');
                     var coverage = parseInt(rE.value);
 
+                    var index = document.getElementById("agegroup").selectedIndex;
+
                     console.log(coverage);
+                    console.log(index);
+
+                    let agefactor = 0;
+                    switch (index) {
+                        case 0:
+                            agefactor = 0.08
+                            break;
+                        case 1:
+                            agefactor = 0.09
+                            break;
+                        case 2:
+                            agefactor = 0.11
+                            break;
+                        case 3: 
+                            agefactor = 0.17
+                            break;
+                        default:
+                            break;
+                    }
+                    let base = 10;
+                    premium = base + agefactor * coverage / 1000;
+                    console.log(premium);
+                    document.getElementById("resultP").textContent=premium.toString();
+
+                    if (index == 0) {
+                        this.animate([{transform:'scale(0.2)'},{transform:'scale(1.5)'}],{durationn:2000,fill:"forwards"});
+                    }
+                    else if(index == 1) {
+                        this.animate([{transform:'translate(0,0)'},{transform:'translate(100px,0)'}],{durationn:2000,fill:"forwards"});
+                    }
+                    else if(index == 2) {
+                        this.animate([{transform:'translate(0,0)'},{transform:'translate(200px,0)'}],{durationn:2000,fill:"forwards"});
+                    }
+                    else{
+                        this.animate([{transform:'translate(0,0)'},{transform:'translate(300px,0)'}],{durationn:2000,fill:"forwards"});
+                    }
+
+                    if (index == 0) {
+                        document.getElementById('ages').animate([{transform:'translate(0,0)'},{transform:'translate(100px,0)'}],{durationn:2000,fill:"forwards"});
+                    }
                 }
 
                 var bE=document.querySelector('input[value="Check Premium"]');
                 bE.addEventListener('click',getpremium,false);
-
+                
+                
 
 
             </script>
@@ -373,8 +416,23 @@
             <p> Display the square of numer 1... N </p>
             <p> N = <input type="number" min="1" max="10" id="inputnumber1"> </p>
             <p>
-                <input type="button" value="Click for Square">
+                <input type="button" id="dosquare" value="Click for Square">
             </p>
+
+            <script>
+                function dosum() {
+                    var sum = 0;
+                    var N = parseInt(document.getElementById('inputnumber1').value);
+                    console.log(N);
+                    for(var i=1; i<N+1; i++){
+                        sum = i*i;
+                        document.write(sum);
+                    } 
+                    
+                }
+
+                document.querySelector("#dosquare").addEventListener("click",dosum,false);
+            </script>
 
         </div>
 
