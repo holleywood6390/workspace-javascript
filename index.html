@@ -7,7 +7,39 @@
     <!-- Jquery library   ---->
     <script src="https://code.jquery.com/jquery-3.5.1.js"
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            $('body').hide().fadeIn(3000);
+            /*
+            $('h1').click(function(){
+                alert("You clicked h1");
+        });
+            $('h1').mouseover(function() {
+                $(this).slideUp();
+            });
+            $('h1').mouseout(function() {
+                $(this).slideDown();
+            }); 
+            */
+           $('p').hide();
+           $('h1').click(function(){
+                $(this).slideToggle();
+           });
 
+          /* $('input').each(function() {
+                var theID = $(this).attr('id');
+                console.log(theID); 
+           });
+           */
+           // get images
+           $('img').each(function() {
+                var theIMG = $(this).attr('src');
+                console.log(theIMG);
+           });
+            
+        });
+
+    </script>
 
 </head>
 
